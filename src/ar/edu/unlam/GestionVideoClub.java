@@ -1,4 +1,4 @@
-package ar.edu.unlam.test;
+package ar.edu.unlam;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -107,6 +107,14 @@ public class GestionVideoClub {
 		
 		
 		return clientes.add(clienteUno);
+	}
+
+
+
+
+	public Cliente buscarCliente(Integer dni) throws ClienteNoEncontradoException{
+		throw new ClienteNoEncontradoException("El cliente no fue encontrado");
+		
 	}
 
 

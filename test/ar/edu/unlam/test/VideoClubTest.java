@@ -13,6 +13,17 @@ import enuns.TipoDeGenero;
 
 import org.junit.Test;
 
+import ar.edu.unlam.Cliente;
+import ar.edu.unlam.ClienteNoEncontradoException;
+import ar.edu.unlam.CodigoInvalidoException;
+import ar.edu.unlam.CodigoRepetidoException;
+import ar.edu.unlam.GestionVideoClub;
+import ar.edu.unlam.Pelicula;
+import ar.edu.unlam.ProductoAudioVisual;
+import ar.edu.unlam.ProductoInexistenteException;
+import ar.edu.unlam.Serie;
+import ar.edu.unlam.VideoJuego;
+
 public class VideoClubTest {
 	private GestionVideoClub videoClub ;
 	private ProductoAudioVisual productoUno;
@@ -108,9 +119,10 @@ public class VideoClubTest {
 		
 	}
 	/*Test 06*/
-	@Test
-	public void queFalleAlBuscarUnClienteInexistente() {
+	@Test (expected = ClienteNoEncontradoException.class)
+	public void queFalleAlBuscarUnClienteInexistente()  throws ClienteNoEncontradoException{
 		
+		videoClub.buscarCliente(11111111);
 		
 	}
 	
