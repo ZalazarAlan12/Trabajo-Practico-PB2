@@ -25,6 +25,11 @@ public class Serie extends ProductoAudioVisual {
 	throw new CodigoInvalidoException ("Codigo invalido");
 	}
 
+	@Override
+	public double calcularPrecioAlquiler(Integer dias) {
+		return (getPrecioBase() * dias) + 10.0;
+	}
+
 		
 	
 	}

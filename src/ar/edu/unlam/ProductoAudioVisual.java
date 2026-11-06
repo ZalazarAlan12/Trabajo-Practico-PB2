@@ -7,19 +7,35 @@ public abstract class ProductoAudioVisual {
 	private String codigo;
 	private String titulo;
 	private Double precioBase;
+	private Integer stock;
 
 	public ProductoAudioVisual(String codigo , String titulo ,Double precio ) {
 			
 	this.codigo = codigo ;
 	this.titulo = titulo ;
 	this.precioBase = precio ;
+	this.stock = 0;
 	
 	}
 	
 	
 	
 	
-public String getCodigo() {
+	public Integer getStock() {
+		return stock;
+	}
+
+
+
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+
+
+
+
+	public String getCodigo() {
 		return codigo;
 	}
 
@@ -82,6 +98,11 @@ public String getCodigo() {
 	}
 	
 	public abstract Boolean validarCodigo() throws CodigoInvalidoException;
+
+
+
+
+	public abstract double calcularPrecioAlquiler(Integer dias);
 
 
 
