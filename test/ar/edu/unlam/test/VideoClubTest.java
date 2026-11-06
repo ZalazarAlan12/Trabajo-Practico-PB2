@@ -152,20 +152,20 @@ public class VideoClubTest {
 		assertEquals(4, productoUno.getStock(), 0.0);
 		
 	}
-	
+	/*Test 09*/
 	@Test (expected = TituloNoDisponibleException.class)
-	public void queFalleSiNoHayEjemplaresDisponibles() throws Exception {
-	    videoClub.registrarProdutoAudioVisual(productoUno);
-	    videoClub.registrarCliente(clienteUno);
-	    videoClub.registrarCliente(clienteDos);
-	    
-	    productoUno.setStock(1);
-	    
-	    videoClub.registrarAlquiler(clienteUno, productoUno);
-	    videoClub.registrarAlquiler(clienteDos, productoUno);
-	    
-	}
+	public void  queFalleSiNoHayEjemplaresDisponibles() throws Exception {
+		videoClub.registrarProdutoAudioVisual(productoUno);
+		videoClub.registrarCliente(clienteUno);
+		videoClub.registrarCliente(clienteDos);
+		
+		productoUno.setStock(1);
+		
+		videoClub.registrarAlquiler(clienteUno, productoUno);
 	
+		videoClub.registrarAlquiler(clienteDos, productoUno);
+		
+	}
 	/*Test 10*/
 	@Test
 	public void  queFalleAlSuperarElLimiteDeAlquileresSegunElTipoDeSocio() {
