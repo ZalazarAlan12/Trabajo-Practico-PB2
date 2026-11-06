@@ -1,12 +1,12 @@
-package ar.edu.unlam.test;
+package ar.edu.unlam;
 
 import enuns.TipoDeGenero;
 
-public class Serie extends ProductoAudioVisual {
+public class Pelicula extends ProductoAudioVisual{
 
 	private TipoDeGenero genero;
 
-	public Serie(String codigo, String titulo, Double precio , TipoDeGenero genero) {
+	public Pelicula(String codigo, String titulo, Double precio, TipoDeGenero genero) {
 		super(codigo, titulo, precio);
 		
 		this.genero = genero ;
@@ -15,20 +15,14 @@ public class Serie extends ProductoAudioVisual {
 
 	@Override
 	public Boolean validarCodigo() throws CodigoInvalidoException {
-	
-		
-		if(super.getCodigo().startsWith("S")&& super.getCodigo().endsWith("S")) {
+		if(super.getCodigo().startsWith("P")&& super.getCodigo().endsWith("P")) {
 			
 			return true ;
 		}
 	
 	throw new CodigoInvalidoException ("Codigo invalido");
-	}
-
-		
-	
-	}
-
-	
+}
 
 
+
+}

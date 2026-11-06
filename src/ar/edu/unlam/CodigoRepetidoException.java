@@ -1,4 +1,4 @@
-package ar.edu.unlam.test;
+package ar.edu.unlam;
 
 public class CodigoRepetidoException extends Exception {
 public CodigoRepetidoException(String message) {

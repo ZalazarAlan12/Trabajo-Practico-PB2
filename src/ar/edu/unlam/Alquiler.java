@@ -1,4 +1,4 @@
-package ar.edu.unlam.test;
+package ar.edu.unlam;
 
 import java.time.LocalDate;
 
