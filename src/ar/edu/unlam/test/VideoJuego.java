@@ -19,14 +19,14 @@ public class VideoJuego extends ProductoAudioVisual {
 	
 	
 	@Override
-	public Boolean validarCodigo() throws CodigoInvalidoExeption {
+	public Boolean validarCodigo() throws CodigoInvalidoException {
 			
 			if(super.getCodigo().startsWith("V")&& super.getCodigo().endsWith("V")) {
 				
 				return true ;
 			}
 		
-		throw new CodigoInvalidoExeption ("Codigo invalido");
+		throw new CodigoInvalidoException ("Codigo invalido");
 	}
 
 }

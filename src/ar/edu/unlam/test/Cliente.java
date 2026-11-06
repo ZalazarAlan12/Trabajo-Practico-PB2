@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Cliente {
 	
-	
+private Integer numeroCliente ; 	
 private String nombre;
 private Integer dni;
 
@@ -12,8 +12,7 @@ public Cliente (String nombre,  Integer dni) {
 	
 	this.nombre = nombre ;
 	this.dni = dni ;
-	
-	
+	this.numeroCliente = null ;	
 }
 
 
@@ -35,6 +34,18 @@ public boolean equals(Object obj) {
 		return false;
 	Cliente other = (Cliente) obj;
 	return Objects.equals(dni, other.dni);
+}
+
+
+
+public Integer getNumeroCliente() {
+	return numeroCliente;
+}
+
+
+
+public void setNumeroCliente(Integer numeroCliente) {
+	this.numeroCliente = numeroCliente;
 }
 
 

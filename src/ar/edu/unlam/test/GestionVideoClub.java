@@ -50,19 +50,63 @@ public class GestionVideoClub {
 
 
 
-	public Boolean registrarProdutoAudioVisual(ProductoAudioVisual producto) throws CodigoInvalidoExeption {
+	public void registrarProdutoAudioVisual(ProductoAudioVisual producto) throws Exception{
+			
 		
-					
-			if(producto.validarCodigo()) {
+			validarProducto(producto);		
+			
+			catalogo.put(producto.getCodigo(), producto);
+			  	
+		
+			
+			
+			
+			
+	}
+
+
+
+
+	private Boolean validarProducto(ProductoAudioVisual producto) throws CodigoInvalidoException, CodigoRepetidoException {
+		
+		if(producto.validarCodigo() && catalogo.containsKey(producto.getCodigo())) {
+			
+			throw new CodigoRepetidoException ("El codigo ya existe");
+		}
+		
+		return true ;
+
+	}
+
+
+
+
+	public ProductoAudioVisual buscarProductoAudioVisualPorTitulo(String titulo) throws ProductoInexistenteException {
+	
+		
+		for (Map.Entry<String, ProductoAudioVisual> entry : this.catalogo.entrySet()) {
+			String key = entry.getKey();
+			ProductoAudioVisual val = entry.getValue();
+			
+			if(val.getTitulo().trim().toLowerCase().equals(titulo.trim().toLowerCase())) {
 				
-			 catalogo.put(producto.getCodigo(), producto);
-			    return true ;
+				return val;
+				
 			}
+			
+		}
 		
-				
+			throw new ProductoInexistenteException("Producto no encontrado");
+	}
+
+
+
+
+	public Boolean registrarCliente(Cliente clienteUno) {
 		
 		
-		return null;
+		
+		return clientes.add(clienteUno);
 	}
 
 

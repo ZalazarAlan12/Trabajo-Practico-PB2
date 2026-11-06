@@ -14,13 +14,13 @@ public class Pelicula extends ProductoAudioVisual{
 	}
 
 	@Override
-	public Boolean validarCodigo() throws CodigoInvalidoExeption {
+	public Boolean validarCodigo() throws CodigoInvalidoException {
 		if(super.getCodigo().startsWith("P")&& super.getCodigo().endsWith("P")) {
 			
 			return true ;
 		}
 	
-	throw new CodigoInvalidoExeption ("Codigo invalido");
+	throw new CodigoInvalidoException ("Codigo invalido");
 }
 
 

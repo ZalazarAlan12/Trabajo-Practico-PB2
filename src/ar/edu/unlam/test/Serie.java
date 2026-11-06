@@ -14,7 +14,7 @@ public class Serie extends ProductoAudioVisual {
 	}
 
 	@Override
-	public Boolean validarCodigo() throws CodigoInvalidoExeption {
+	public Boolean validarCodigo() throws CodigoInvalidoException {
 	
 		
 		if(super.getCodigo().startsWith("S")&& super.getCodigo().endsWith("S")) {
@@ -22,7 +22,7 @@ public class Serie extends ProductoAudioVisual {
 			return true ;
 		}
 	
-	throw new CodigoInvalidoExeption ("Codigo invalido");
+	throw new CodigoInvalidoException ("Codigo invalido");
 	}
 
 		

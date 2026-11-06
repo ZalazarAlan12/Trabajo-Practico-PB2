@@ -1,5 +1,7 @@
 package ar.edu.unlam.test;
 
+import java.util.Objects;
+
 public abstract class ProductoAudioVisual {
 
 	private String codigo;
@@ -49,6 +51,29 @@ public String getCodigo() {
 		return precioBase;
 	}
 
+	
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ProductoAudioVisual))
+			return false;
+		ProductoAudioVisual other = (ProductoAudioVisual) obj;
+		return Objects.equals(codigo, other.codigo);
+	}
+
 
 
 
@@ -56,7 +81,7 @@ public String getCodigo() {
 		this.precioBase = precioBase;
 	}
 	
-	public abstract Boolean validarCodigo() throws CodigoInvalidoExeption;
+	public abstract Boolean validarCodigo() throws CodigoInvalidoException;
 
 
 
