@@ -1,18 +1,23 @@
 package ar.edu.unlam;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 public class GestionVideoClub {
 
 	private Map <String , ProductoAudioVisual> catalogo ;
 	private HashSet<Cliente> clientes ;
+	private List<Alquiler> alquileres;
 	
 	public GestionVideoClub () {
 		
 		this.catalogo = new HashMap<String, ProductoAudioVisual>();
 		this.clientes = new HashSet<Cliente>();
+		this.alquileres = new ArrayList<>();
 		
 	}
 	
@@ -115,6 +120,17 @@ public class GestionVideoClub {
 	public Cliente buscarCliente(Integer dni) throws ClienteNoEncontradoException{
 		throw new ClienteNoEncontradoException("El cliente no fue encontrado");
 		
+	}
+
+
+
+
+	public Boolean registrarAlquiler(Cliente clienteUno, ProductoAudioVisual productoUno) {
+		productoUno.setStock(productoUno.getStock() - 1);
+		
+		Alquiler nuevoAlquiler = new Alquiler(1, clienteUno, LocalDate.now(), productoUno);
+	    
+	    return this.alquileres.add(nuevoAlquiler);
 	}
 
 

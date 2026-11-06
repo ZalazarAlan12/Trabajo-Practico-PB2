@@ -131,14 +131,24 @@ public class VideoClubTest {
 	@Test
 	public void queElPrecioDeAlquilerDependaDelTipoDeTitulo() {
 		
-		
+		assertEquals(40.0, productoUno.calcularPrecioAlquiler(2), 0.0);
+		assertEquals(60.0, productoDos.calcularPrecioAlquiler(2), 0.0);
+		assertEquals(35.0, productoTres.calcularPrecioAlquiler(2), 0.0);
 		
 	}
 	
 	/*Test 08*/
 	@Test
-	public void queSeRegistreUnAlquilerYSeDescuenteElStock() {
+	public void queSeRegistreUnAlquilerYSeDescuenteElStock() throws Exception {
+		videoClub.registrarProdutoAudioVisual(productoUno);
+		videoClub.registrarCliente(clienteUno);
 		
+		productoUno.setStock(5);
+		
+		Boolean seRegistro = videoClub.registrarAlquiler(clienteUno, productoUno);
+		
+		assertTrue(seRegistro);
+		assertEquals(4, productoUno.getStock(), 0.0);
 		
 	}
 	/*Test 09*/
