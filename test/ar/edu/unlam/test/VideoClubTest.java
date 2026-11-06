@@ -22,6 +22,7 @@ import ar.edu.unlam.Pelicula;
 import ar.edu.unlam.ProductoAudioVisual;
 import ar.edu.unlam.ProductoInexistenteException;
 import ar.edu.unlam.Serie;
+import ar.edu.unlam.TituloNoDisponibleException;
 import ar.edu.unlam.VideoJuego;
 
 public class VideoClubTest {
@@ -151,12 +152,20 @@ public class VideoClubTest {
 		assertEquals(4, productoUno.getStock(), 0.0);
 		
 	}
-	/*Test 09*/
-	@Test
-	public void  queFalleSiNoHayEjemplaresDisponibles() {
-		
-		
+	
+	@Test (expected = TituloNoDisponibleException.class)
+	public void queFalleSiNoHayEjemplaresDisponibles() throws Exception {
+	    videoClub.registrarProdutoAudioVisual(productoUno);
+	    videoClub.registrarCliente(clienteUno);
+	    videoClub.registrarCliente(clienteDos);
+	    
+	    productoUno.setStock(1);
+	    
+	    videoClub.registrarAlquiler(clienteUno, productoUno);
+	    videoClub.registrarAlquiler(clienteDos, productoUno);
+	    
 	}
+	
 	/*Test 10*/
 	@Test
 	public void  queFalleAlSuperarElLimiteDeAlquileresSegunElTipoDeSocio() {

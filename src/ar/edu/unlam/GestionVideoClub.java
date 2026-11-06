@@ -125,10 +125,14 @@ public class GestionVideoClub {
 
 
 
-	public Boolean registrarAlquiler(Cliente clienteUno, ProductoAudioVisual productoUno) {
-		productoUno.setStock(productoUno.getStock() - 1);
-		
-		Alquiler nuevoAlquiler = new Alquiler(1, clienteUno, LocalDate.now(), productoUno);
+	public Boolean registrarAlquiler(Cliente clienteUno, ProductoAudioVisual productoUno) throws TituloNoDisponibleException{
+	    if (productoUno.getStock() <= 0) {
+	        throw new TituloNoDisponibleException("No hay ejemplares disponibles");
+	    }
+	    
+	    productoUno.setStock(productoUno.getStock() - 1);
+	    
+	    Alquiler nuevoAlquiler = new Alquiler(1, clienteUno, LocalDate.now(), productoUno);
 	    
 	    return this.alquileres.add(nuevoAlquiler);
 	}
